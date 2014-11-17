@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html>
       <head>
         <title>Ruby on Rails Tutorial Sample App | <%= yield(:title) %></title>
@@ -10,8 +10,8 @@
         <![endif]-->
       </head>
       <body>
-      	<%= render 'layouts/header' %>        	
-          <header class="navbar navbar-fixed-top">
+        <%= render 'layouts/header' %>
+        <header class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <%= link_to "sample app", root_path, id: "logo" %>
@@ -25,11 +25,9 @@
         </div>
       </div>
     </header> 
-        </header>
         <div class="container">
           <%= yield %>
           <%= render 'layouts/footer' %>
-          <%= debug(params) if Rails.env.development? %>
         </div>
       </body>
     </html>
