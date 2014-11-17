@@ -26,8 +26,12 @@
       </div>
     </header> 
         <div class="container">
+          <% flash.each do |key, value| %>         <!-- START NEW CODE  -->
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>    
           <%= yield %>
           <%= render 'layouts/footer' %>
+          <%= debug(params) if Rails.env.development? %> <!--debug info-->
         </div>
       </body>
     </html>
