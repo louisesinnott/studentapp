@@ -12,18 +12,16 @@ class UsersController < ApplicationController
       
 
       def create
-
-        secure_params = params.require(:user).permit(:student_no, :name, :email, :password, :password_confirmation)
+        secure_params = params.require(:user).permit( :name, :email, 
+                                  :password, :password_confirmation, :student_no)
         @user = User.new(secure_params)
-        
-        if @user.save
-        	sign_in @user       #  NEW LINE
-        	flash[:success] = "Welcome to the Sample App!"    # NEW LINE
-        	redirect_to @user   # NEW LINE
+        sign_in @user       #  NEW LINE
+      flash[:success] = "Welcome to Student Feedback Portal!"    # NEW LINE
+      redirect_to @user   # NEW LINE
         else
-            render 'new'     # NEW LINE    
+            render 'new'  
         end
       end
-    end
+
 
 
