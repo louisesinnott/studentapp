@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
       def show
         @user = User.find(params[:id])
-        #@microposts = @user.microposts    # NEW LINE
+        @feedbacks = @user.feedbacks    # NEW LINE
       end
 
       def new
@@ -12,16 +12,17 @@ class UsersController < ApplicationController
       
 
       def create
-        secure_params = params.require(:user).permit( :name, :email, 
-                                  :password, :password_confirmation, :student_no)
+
+        secure_params = params.require(:user).permit(:name, :email, :password, :password_confirmation, :studentno)
         @user = User.new(secure_params)
+        if @user.save
         sign_in @user       #  NEW LINE
-      flash[:success] = "Welcome to Student Feedback Portal!"    # NEW LINE
-      redirect_to @user   # NEW LINE
+        flash[:success] = "Welcome to the Sample App!"    # NEW LINE
+        redirect_to @user   # NEW LINE
         else
-            render 'new'  
+            render 'new'     # NEW LINE    
         end
       end
-
+    end
 
 

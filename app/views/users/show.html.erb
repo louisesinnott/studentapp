@@ -9,3 +9,52 @@
         </section>
       </aside>
     </div> 
+
+<div class="feedbacks"
+<aside class="span8 offset2">
+ <h2>Subject Feedbacks</h2>
+
+<aside class="span8 offset2">
+
+<table>
+  <table border="1px", style="width:100%">
+  <tr>
+    <th>Subject Name</th>
+    <th>Strengths</th>
+    <th>Weaknesses</th>
+    <th>Recommendations</th>
+    <th>Rating</th>
+   
+  </tr>
+
+<% @feedbacks.each do |feedback| %>
+<tr>
+
+    <td align="center"><%= feedback.subject_name %></td>
+    <td align="center"><%= feedback.strengths %></td>
+    <td align="center"><%= feedback.weaknesses %></td>
+   <td align="center"><%= feedback.recommendations %></td>
+    <td align="center"><%= feedback.rating %></td>
+
+  </tr>
+<% end %>
+</table>
+
+
+<br />
+<br />
+
+
+<%= link_to 'New Feedback', new_feedback_path %>
+
+</aside></aside></div>
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

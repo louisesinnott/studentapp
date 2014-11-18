@@ -1,0 +1,7 @@
+<li>
+      <span class="subject_name"><%= feedback.subject_name %></span>
+      <span class="strengths"><%= feedback.strengths %></span>
+      <span class="timestamp">
+        Posted <%= time_ago_in_words(feedback.created_at) %> ago.
+      </span>
+    </li>

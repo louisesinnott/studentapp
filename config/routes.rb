@@ -11,8 +11,8 @@ root to: 'static_pages#home'
   match '/signout', to: 'sessions#destroy', via: :delete    # NEW LINE
 
   
-
-      resources :sessions, only: [:new, :create, :destroy]  # NEW LINE
+resources :feedbacks, only: [:new, :create, :destroy]
+resources :sessions, only: [:new, :create, :destroy]  # NEW LINE
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

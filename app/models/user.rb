@@ -1,4 +1,5 @@
     class User < ActiveRecord::Base
+      has_many :feedbacks, dependent: :destroy #indicates association with feedback
     	before_save do |user| 
               user.email = email.downcase 
             user.remember_token = SecureRandom.urlsafe_base64
