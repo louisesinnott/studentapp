@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118141942) do
+ActiveRecord::Schema.define(version: 20141118163836) do
+
+  create_table "course_feedback", id: false, force: true do |t|
+    t.integer "course_id"
+    t.integer "subject_id"
+  end
+
+  create_table "course_subjects", id: false, force: true do |t|
+    t.string "course_id"
+    t.string "subject_id"
+  end
+
+  create_table "courses", force: true do |t|
+    t.string   "course_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "feedbacks", force: true do |t|
     t.string   "user_id"
@@ -26,14 +43,14 @@ ActiveRecord::Schema.define(version: 20141118141942) do
 
   add_index "feedbacks", ["user_id", "created_at"], name: "index_feedbacks_on_user_id_and_created_at"
 
-  create_table "microposts", force: true do |t|
-    t.string   "content"
-    t.integer  "user_id"
+  create_table "subjects", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "ca_percent"
+    t.integer  "final_exam_percent"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
 
 # Could not dump table "users" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass

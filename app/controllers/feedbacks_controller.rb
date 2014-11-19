@@ -1,8 +1,10 @@
 class FeedbacksController < ApplicationController
 	before_filter :signed_in_user, only: [:new, :create, :destroy]
+  
 
       def new
         @feedback = Feedback.new
+        
       end 
 
       def create
@@ -20,6 +22,6 @@ class FeedbacksController < ApplicationController
       end
 
       def index
-  @feedbacks = Feedback.search(params[:search])
-end
+       @feedbacks = Feedback.search(params[:search])
+      end
     end
