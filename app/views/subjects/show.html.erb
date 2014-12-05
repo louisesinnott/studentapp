@@ -1,0 +1,57 @@
+<% provide(:title, @subject.name) %>
+    <div class="row">
+      <aside class="span4">
+        <section>
+          <h1>
+            <%= @subject.name %>
+          </h1>
+        </section>
+      </aside>
+    </div> 
+
+<div class="feedbacks"
+<aside class="span8 offset2">
+ <h2>Subjects</h2>
+
+<aside class="span8 offset2">
+
+<table>
+  <table border="1px", style="width:100%">
+  <tr>
+    <th>Subject Name</th>
+    <th>Description</th>
+    <th>Ca Percentage</th>
+    <th>Final Exam Percentage</th>
+   
+  </tr>
+
+<% @subjects.each do |subject| %>
+<tr>
+
+    <td align="center"><%= subject.subject_name %></td>
+    <td align="center"><%= subject.description %></td>
+    <td align="center"><%= subject.ca_percent %></td>
+   <td align="center"><%= subject.final_exam_percent %></td>
+
+  </tr>
+<% end %>
+</table>
+
+
+<br />
+<br />
+
+
+<%= link_to 'Add Subject', '#' %>
+
+</aside></aside></div>
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

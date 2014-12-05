@@ -1,13 +1,11 @@
-class FeedbacksController < ApplicationController
-	before_filter :signed_in_user, only: [:new, :create, :destroy, :show]
-  
+class ModulesController < ApplicationController
+	before_filter :signed_in_user, only: [:new, :create, :destroy]
   
 
       def new
         @feedback = Feedback.new
         
       end 
-
 
       def create
         secure_post = params.require(:feedback).permit(:subject_name, :strengths, :weaknesses, :recommendations, :rating)
@@ -20,18 +18,10 @@ class FeedbacksController < ApplicationController
         end
       end
 
-      
-
       def destroy
-      end
-
-      def show
-        @feedback = current_user.feedbacks    # NEW LINE
       end
 
       def index
        @feedbacks = Feedback.search(params[:search])
       end
-
-      
     end
