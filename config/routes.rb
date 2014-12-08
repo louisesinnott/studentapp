@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users 
   #get 'users/new'
-  resources :subjects
+  
 
 root to: 'static_pages#home'
   match '/help',    to: 'static_pages#help' , via: 'get'
@@ -14,6 +14,7 @@ root to: 'static_pages#home'
   
 resources :feedbacks, only: [:new, :create, :destroy, :show]
 resources :sessions, only: [:new, :create, :destroy]  # NEW LINE
+resources :subjects
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

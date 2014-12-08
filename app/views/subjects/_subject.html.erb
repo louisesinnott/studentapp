@@ -1,0 +1,10 @@
+ <li>
+      <span class="content"><%= subject.content %></span>
+      <!-- START DELETE LINK -->
+      <% if current_user?(subject.user) %>
+        <%= link_to "delete", subject, method: :delete,
+                                         data: { confirm: "You sure?" },
+                                         title: subject.content %>
+      <% end %>
+      <!-- END DELETE LINK -->
+    </li>

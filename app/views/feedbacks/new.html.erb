@@ -7,8 +7,8 @@
       
 
     <%= f.label :subject_name, 'Subject Name' %>
-   <%= f.collection_select(:subject_name, Subject.all, :id, :name) %>
-
+   
+  <%= collection_select(:subject_name, :name, Course.all, :course_id, :subject_name, {}, { :multiple => true } )%>
    
 
     <%= f.label  :Strengths, 'Strengths' %>

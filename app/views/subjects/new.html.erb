@@ -1,0 +1,28 @@
+<% provide(:title, 'New Subject') %>
+    <h1>New Subject</h1>
+
+    <div class="row">
+      <div class="span6 offset3">
+        <%= form_for(@subject) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+          <%= f.label :name, "Subject Name" %>
+          <%= f.text_field :name %>
+
+          <%= f.label :description, "Description" %>
+          <%= f.text_field :description %>
+
+          <%= f.label :ca_percent, "Ca Percentage" %>
+          <%= f.text_field :ca_percent %>
+
+          <%= f.label :final_exam_percent, "Final Exam Percentage" %>
+          <%= f.text_field :final_exam_percent %>
+
+          <%= f.label :course_id, "Course ID" %>
+          <%= f.collection_select(:course_id, Course.all, :course_id, :name) %>
+
+
+          <%= f.submit "Create new Subject", class: "btn btn-large btn-primary" %>
+        <% end %>
+      </div>
+    </div>

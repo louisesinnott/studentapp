@@ -1,8 +1,6 @@
 class FeedbacksController < ApplicationController
 	before_filter :signed_in_user, only: [:new, :create, :destroy, :show]
   
-  
-
       def new
         @feedback = Feedback.new
         

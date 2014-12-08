@@ -10,6 +10,7 @@ module SessionsHelper
         @current_user = user
       end
 
+
       # NEW GETTER
       def current_user
         if @current_user.nil?

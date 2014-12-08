@@ -1,26 +1,40 @@
 
 class SubjectsController < ApplicationController
       def show
-        @subject = Subject.find(params[:id])
-    
+        @subject = Subject.find(params[:name])
       end
-
-      def new
-        @user = User.new
-      end
-
       
+      def new
+        @subject = Subject.new 
+      end 
+
+      # UPDATED IMPLEMENTATION
+      def destroy
+        @subject.destroy
+        redirect_to root_url
+      end
+
+       # NEW PRIVATE METHOD
+      private
+
+        def correct_user
+          @subject = current_user.subjects.find_by_id(params[:id])
+          redirect_to root_url 
+        end
+    end
 
       def create
-
-        secure_params = params.require(:user).permit(:name, :email, :password, :password_confirmation, :student_no, :course_id)
-        @user = User.new(secure_params)
-        if @user.save
-        sign_in @user       #  NEW LINE
-        flash[:success] = "Welcome to the Sample App!"    # NEW LINE
-        redirect_to @user   # NEW LINE
+        secure_params = params.require(:subject).permit(:name, :description, :ca_percent, :final_exam_percent)
+        @subject = Subject.new(secure_params)
+        if @subject.save
+          flash[:success] = "Subject created!"
+          redirect_to root_url
         else
-            render 'new'     # NEW LINE    
+          render 'static_pages/home'
         end
       end
-    end
+      
+
+      def index
+       @subjects = User.all
+      end
